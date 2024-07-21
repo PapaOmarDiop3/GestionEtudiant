@@ -1,0 +1,23 @@
+<table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Date de Naissance</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let etudiant of etudiants">
+        <td>{{ etudiant.nom }}</td>
+        <td>{{ etudiant.prenom }}</td>
+        <td>{{ etudiant.dateNaissance }}</td>
+        <td>{{ etudiant.email }}</td>
+        <td>
+          <a [routerLink]="['/modifier', etudiant.id]">Modifier</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
