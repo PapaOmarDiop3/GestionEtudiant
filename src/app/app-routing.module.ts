@@ -6,7 +6,7 @@ import { ListeEtudiantsComponent } from './liste-etudiants/liste-etudiants.compo
 const routes: Routes = [
   { path: 'ajouter', component: AjouterEtudiantComponent },
   { path: 'liste', component: ListeEtudiantsComponent },
-  { path: '', redirectTo: '/ajouter', pathMatch: 'full' } // Redirection par défaut
+  { path: '', redirectTo: '/ajouter', pathMatch: 'full' }
 ];
 
 @NgModule({

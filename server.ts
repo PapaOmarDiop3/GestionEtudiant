@@ -17,8 +17,6 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
   server.get('**', express.static(browserDistFolder, {
     maxAge: '1y',
@@ -31,7 +29,7 @@ export function app(): express.Express {
 
     commonEngine
       .render({
-        bootstrap,
+        bootstrap: bootstrap(), // Assurez-vous que bootstrap() retourne ce qui est attendu
         documentFilePath: indexHtml,
         url: `${protocol}://${headers.host}${originalUrl}`,
         publicPath: browserDistFolder,

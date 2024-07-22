@@ -1,7 +1,16 @@
-import { bootstrapApplication } from '@angular/platform-browser';
+import { NgModule, Type, ApplicationRef } from '@angular/core'; // Ajoutez les types manquants
+import { ServerModule } from '@angular/platform-server';
+import { AppServerModule as AppServerModuleImported } from './app/app.server.module'; // Importez le module serveur
 import { AppComponent } from './app/app.component';
-import { config } from './app/app.config.server';
 
-const bootstrap = () => bootstrapApplication(AppComponent, config);
+// Définissez AppServerModule comme module Angular
+@NgModule({
+  imports: [AppServerModuleImported, ServerModule],
+  bootstrap: [AppComponent],
+})
+export class AppServerModule {}
 
-export default bootstrap;
+// Fonction bootstrap pour le rendu côté serveur
+export default function bootstrap(): Type<{}> | (() => Promise<ApplicationRef>) {
+  return AppServerModule;
+}

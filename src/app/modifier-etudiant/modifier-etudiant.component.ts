@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { EtudiantService } from '../etudiant.service';
 
 @Component({
   selector: 'app-modifier-etudiant',
@@ -8,25 +6,13 @@ import { EtudiantService } from '../etudiant.service';
   styleUrls: ['./modifier-etudiant.component.css']
 })
 export class ModifierEtudiantComponent implements OnInit {
-  etudiant: any = { nom: '', email: '' };
-  id: number;
+  etudiant = { nom: '', email: '' };  // Définir les propriétés nécessaires
 
-  constructor(
-    private etudiantService: EtudiantService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) { }
-
-  ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get('id');
-    this.etudiantService.getEtudiant(this.id).subscribe(data => {
-      this.etudiant = data;
-    });
+  ngOnInit(): void {
+    // Code pour initialiser les données
   }
 
-  modifierEtudiant() {
-    this.etudiantService.updateEtudiant(this.id, this.etudiant).subscribe(() => {
-      this.router.navigate(['/lister-etudiants']);
-    });
+  modifierEtudiant(): void {
+    // Code pour modifier l'étudiant
   }
 }

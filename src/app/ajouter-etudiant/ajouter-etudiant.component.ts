@@ -6,13 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./ajouter-etudiant.component.css']
 })
 export class AjouterEtudiantComponent {
-  etudiant = {
-    nom: '',
-    email: ''
-  };
-
-  ajouterEtudiant() {
-    // Logique pour ajouter un étudiant
-    console.log('Étudiant ajouté:', this.etudiant);
+  onSubmit(etudiantForm: any) {
+    console.log(etudiantForm.value);
   }
 }

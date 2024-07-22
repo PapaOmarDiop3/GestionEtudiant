@@ -1,6 +1,17 @@
 import { defineConfig } from 'vite';
-import { createAngularPlugin } from 'vite-plugin-angular';
+import angular from '@vitejs/plugin-angular';
 
 export default defineConfig({
-  plugins: [createAngularPlugin()],
+  plugins: [angular()],
+  server: {
+    port: 4200,
+  },
+  build: {
+    rollupOptions: {
+      input: 'src/main.ts',
+      output: {
+        format: 'es',
+      },
+    },
+  },
 });

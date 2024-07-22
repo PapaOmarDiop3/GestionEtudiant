@@ -332,15 +332,16 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<div style="text-align:center">
-  <h1>
-    {{ title }}
-  </h1>
-</div>
-
+<!-- app.component.html -->
+<h1>Bonjour, gestion-etudiants</h1>
+<p>Félicitations ! Votre application est en cours d'exécution. 🎉</p>
 <nav>
-  <a routerLink="/ajouter">Ajouter Étudiant</a>
-  <a routerLink="/liste">Liste des Étudiants</a>
+  <ul>
+    <li><a routerLink="/">Accueil</a></li>
+    <li><a routerLink="/ajouter-etudiant">Ajouter Étudiant</a></li>
+    <li><a routerLink="/liste-etudiants">Liste Étudiants</a></li>
+    <li><a routerLink="/modifier-etudiant">Modifier Étudiant</a></li>
+    <li><a routerLink="/supprimer-etudiant">Supprimer Étudiant</a></li>
+  </ul>
 </nav>
-
-<router-outlet></router-outlet> <!-- Lieu d'affichage des composants routés -->
+<router-outlet></router-outlet>
