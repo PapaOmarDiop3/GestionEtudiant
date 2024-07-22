@@ -1,18 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { EtudiantService } from '../etudiant.service';
-import { Etudiant } from '../etudiant.model';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-liste-etudiants',
   templateUrl: './liste-etudiants.component.html',
   styleUrls: ['./liste-etudiants.component.css']
 })
-export class ListeEtudiantsComponent implements OnInit {
-  etudiants: Etudiant[] = [];
-
-  constructor(private etudiantService: EtudiantService) {}
-
-  ngOnInit() {
-    this.etudiants = this.etudiantService.getEtudiants();
-  }
+export class ListeEtudiantsComponent {
+  etudiants = [
+    { nom: 'John Doe', email: 'john.doe@example.com' },
+    { nom: 'Jane Smith', email: 'jane.smith@example.com' }
+  ];
 }

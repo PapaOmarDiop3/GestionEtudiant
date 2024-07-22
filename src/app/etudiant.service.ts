@@ -1,28 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Etudiant } from './etudiant.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EtudiantService {
-  private etudiants: Etudiant[] = [];
+  private apiUrl = 'http://localhost:3000/etudiants'; // URL de votre API
 
-  getEtudiants(): Etudiant[] {
-    return this.etudiants;
+  constructor(private http: HttpClient) { }
+
+  getEtudiants(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
   }
 
-  getEtudiantById(id: number): Etudiant | undefined {
-    return this.etudiants.find(etudiant => etudiant.id === id);
+  getEtudiant(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
-  addEtudiant(etudiant: Etudiant): void {
-    this.etudiants.push(etudiant);
+  addEtudiant(etudiant: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, etudiant);
   }
 
-  updateEtudiant(id: number, updatedEtudiant: Etudiant): void {
-    const index = this.etudiants.findIndex(etudiant => etudiant.id === id);
-    if (index !== -1) {
-      this.etudiants[index] = updatedEtudiant;
-    }
+  updateEtudiant(id: number, etudiant: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, etudiant);
+  }
+
+  deleteEtudiant(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 }

@@ -3,12 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EtudiantService } from '../etudiant.service';
 
 @Component({
-  selector: 'app-modifier-etudiant',
-  templateUrl: './modifier-etudiant.component.html',
-  styleUrls: ['./modifier-etudiant.component.css']
+  selector: 'app-supprimer-etudiant',
+  templateUrl: './supprimer-etudiant.component.html',
+  styleUrls: ['./supprimer-etudiant.component.css']
 })
-export class ModifierEtudiantComponent implements OnInit {
-  etudiant: any = { nom: '', email: '' };
+export class SupprimerEtudiantComponent implements OnInit {
   id: number;
 
   constructor(
@@ -19,13 +18,11 @@ export class ModifierEtudiantComponent implements OnInit {
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
-    this.etudiantService.getEtudiant(this.id).subscribe(data => {
-      this.etudiant = data;
-    });
+    this.supprimerEtudiant();
   }
 
-  modifierEtudiant() {
-    this.etudiantService.updateEtudiant(this.id, this.etudiant).subscribe(() => {
+  supprimerEtudiant() {
+    this.etudiantService.deleteEtudiant(this.id).subscribe(() => {
       this.router.navigate(['/lister-etudiants']);
     });
   }
