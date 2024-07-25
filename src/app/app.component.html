@@ -333,15 +333,34 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <!-- app.component.html -->
-<h1>Bonjour, gestion-etudiants</h1>
-<p>Félicitations ! Votre application est en cours d'exécution. 🎉</p>
-<nav>
-  <ul>
-    <li><a routerLink="/">Accueil</a></li>
-    <li><a routerLink="/ajouter-etudiant">Ajouter Étudiant</a></li>
-    <li><a routerLink="/liste-etudiants">Liste Étudiants</a></li>
-    <li><a routerLink="/modifier-etudiant">Modifier Étudiant</a></li>
-    <li><a routerLink="/supprimer-etudiant">Supprimer Étudiant</a></li>
-  </ul>
-</nav>
+<div class="container">
+  <header>
+    <img src="assets/angular-logo.png" alt="Angular Logo" class="logo">
+    <h1>Bonjour, Gestion Étudiants</h1>
+    <p>Félicitations ! Votre application est en cours d'exécution. 🎉</p>
+  </header>
+  <nav>
+    <button (click)="goToAccueil()">Accueil</button>
+    <button (click)="ajouterEtudiant()">Ajouter Étudiant</button>
+    <button (click)="listeEtudiants()">Liste des étudiants</button>
+    <button (click)="modifierEtudiant()">Modifier Étudiant</button>
+    <button (click)="supprimerEtudiant()">Supprimer Étudiant</button>
+  </nav>
+  
+  <main>
+    <h2>Bienvenue dans le composant Accueil !</h2>
+  </main>
+  <aside>
+    <h3>Ressources Angular</h3>
+    <ul>
+      <li><a href="#">Explorez les documents</a></li>
+      <li><a href="#">Apprendre avec des tutoriels</a></li>
+      <li><a href="#">Documentation CLI</a></li>
+      <li><a href="#">Service de langage angular</a></li>
+      <li><a href="#">Outils de développement Angular</a></li>
+    </ul>
+  </aside>
+</div>
+
+
 <router-outlet></router-outlet>

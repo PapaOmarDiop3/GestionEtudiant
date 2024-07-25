@@ -1,30 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AjouterEtudiantComponent } from './ajouter-etudiant/ajouter-etudiant.component';
-import { ListeEtudiantsComponent } from './liste-etudiants/liste-etudiants.component';
-import { ModifierEtudiantComponent } from './modifier-etudiant/modifier-etudiant.component';
-import { SupprimerEtudiantComponent } from './supprimer-etudiant/supprimer-etudiant.component';
 import { AccueilComponent } from './accueil/accueil.component';
+// Import other components as necessary
 
-import { appRoutes } from './app.routes';
+const routes: Routes = [
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'ajouter-etudiant', component: AjouterEtudiantComponent },
+  // Define other routes as necessary
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     AjouterEtudiantComponent,
-    ListeEtudiantsComponent,
-    ModifierEtudiantComponent,
-    SupprimerEtudiantComponent,
     AccueilComponent,
+    // Declare other components as necessary
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
